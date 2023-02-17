@@ -144,8 +144,7 @@ public class UserServiceImpl implements IUserService {
                     .failure(new BadRequestException(
                             "La tarjeta está bloqueado."));
 
-        return Uni.createFrom().item(debitCard)
-                .replaceWithVoid();
+        return Uni.createFrom().voidItem();
     }
 
     private Uni<Void> validateClient(Client client, User user) {
@@ -159,7 +158,6 @@ public class UserServiceImpl implements IUserService {
                     .failure(new BadRequestException(
                             "El campo documentIdentity es incorrecto."));
 
-        return Uni.createFrom().item(client)
-                .replaceWithVoid();
+        return Uni.createFrom().voidItem();
     }
 }
