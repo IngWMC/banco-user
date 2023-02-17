@@ -10,7 +10,6 @@ import com.nttdata.bc.services.IAuthService;
 
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
