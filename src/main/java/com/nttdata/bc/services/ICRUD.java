@@ -2,14 +2,17 @@ package com.nttdata.bc.services;
 
 import java.util.List;
 
+// import io.smallrye.mutiny.Multi;
+import io.smallrye.mutiny.Uni;
+
 public interface ICRUD<T, V> {
-    T insert(T obj);
+    Uni<T> insert(T obj);
 
-    T update(T obj);
+    Uni<T> update(T obj);
 
-    List<T> listAll();
+    Uni<List<T>> listAll();
 
-    T findById(V id);
+    Uni<T> findById(V id);
 
-    void delete(V id);
+    Uni<Void> delete(V id);
 }

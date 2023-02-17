@@ -2,6 +2,7 @@ package com.nttdata.bc.documents;
 
 import java.time.LocalDate;
 
+import org.bson.codecs.pojo.annotations.BsonIgnore;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
@@ -21,9 +22,11 @@ public class User {
 
     @NotEmpty(message = "El campo documentIdentityType es requerido.")
     @Pattern(regexp = "^DNI$|^CEX$|^RUC$", message = "El campo documentIdentityType debe tener uno de estos valores: [DNI, CEX, RUC].")
+    @BsonIgnore
     private String documentIdentityType;
 
     @NotEmpty(message = "El campo documentIdentity es requerido.")
+    @BsonIgnore
     private String documentIdentity;
 
     @NotEmpty(message = "El campo cardNumber es requerido.")
@@ -31,15 +34,22 @@ public class User {
     private String cardNumber; // número de la tarjeta
 
     @NotEmpty(message = "El campo expirationDate es requerido.")
-    @BsonProperty("expirationDate")
+    @BsonIgnore
     private String expirationDate; // fecha de vencimiento
 
     @NotEmpty(message = "El campo cardValidationCode es requerido.")
-    @BsonProperty("cardValidationCode")
+    @BsonIgnore
     private String cardValidationCode; // código de validación de la tarjeta
+
+    @NotEmpty(message = "El campo pin es requerido.")
+    @BsonIgnore
+    private String pin;
 
     @NotEmpty(message = "El campo password es requerido.")
     private String password;
+
+    @BsonProperty("isActive")
+    private Boolean isActive;
 
     @BsonProperty("createdAt")
     private LocalDate createdAt;
