@@ -6,6 +6,8 @@ import org.bson.codecs.pojo.annotations.BsonIgnore;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import io.quarkus.mongodb.panache.common.MongoEntity;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -16,6 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @MongoEntity(collection = "users")
 public class User {
     private ObjectId id;
