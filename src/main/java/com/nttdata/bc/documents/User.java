@@ -25,11 +25,11 @@ public class User {
 
     @NotEmpty(message = "El campo documentIdentityType es requerido.")
     @Pattern(regexp = "^DNI$|^CEX$|^RUC$", message = "El campo documentIdentityType debe tener uno de estos valores: [DNI, CEX, RUC].")
-    @BsonIgnore
+    @BsonProperty("documentIdentityType")
     private String documentIdentityType;
 
     @NotEmpty(message = "El campo documentIdentity es requerido.")
-    @BsonIgnore
+    @BsonProperty("documentIdentity")
     private String documentIdentity;
 
     @NotEmpty(message = "El campo cardNumber es requerido.")
